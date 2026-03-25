@@ -2,7 +2,7 @@
 
 import useEmblaCarousel from "embla-carousel-react";
 import { Star, ArrowLeft, ArrowRight } from "lucide-react";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback } from "react";
 import { motion } from "framer-motion";
 
 const TESTIMONIALS = [
@@ -54,7 +54,7 @@ export default function TestimonialsSection() {
             <motion.p 
               initial={{ opacity: 0, y: 15 }} 
               whileInView={{ opacity: 1, y: 0 }} 
-              delay={0.1}
+              transition={{ delay: 0.1 }}
               viewport={{ once: true }} 
               className="text-slate text-body-lg max-w-xl opacity-70"
             >
@@ -90,7 +90,7 @@ export default function TestimonialsSection() {
                       ))}
                     </div>
                     <p className="italic text-slate text-base md:text-[17px] font-body leading-relaxed opacity-80 group-hover:text-navy transition-colors">
-                      "{testimonial.quote}"
+                      &quot;{testimonial.quote}&quot;
                     </p>
                   </div>
                   

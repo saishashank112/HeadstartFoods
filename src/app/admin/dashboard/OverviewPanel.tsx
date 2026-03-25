@@ -1,16 +1,16 @@
 import { 
-  TrendingUp, 
   Users, 
   ShoppingBag,
   ArrowRight,
-  MoreVertical,
   ChevronRight,
   RefreshCw,
   Wallet,
   ShieldCheck,
   Package,
-  Truck
+  Truck,
+  AlertCircle
 } from "lucide-react";
+
 
 const STATS = [
   { label: "Total Revenue", value: "₹76,122.6", trend: "+14.2%", icon: Wallet, color: "text-[#10B981]", bg: "bg-[#10B981]/10" },
@@ -112,5 +112,6 @@ export default function OverviewPanel() {
   );
 }
 
-import { AlertCircle } from "lucide-react";
+
+
 

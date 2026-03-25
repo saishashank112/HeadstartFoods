@@ -2,7 +2,8 @@
 
 import { useOrderStore } from "@/store/useOrderStore";
 import { Truck, MapPin, Package, Clock, CheckCircle2, User, Phone, ExternalLink } from "lucide-react";
-import { motion } from "framer-motion";
+
+
 
 export default function DeliveryPage() {
   const { orders } = useOrderStore();

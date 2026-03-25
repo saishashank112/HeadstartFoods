@@ -44,7 +44,8 @@ const RECENT_ORDERS = [
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState<string>("overview");
-  const { user, isAuthenticated } = useAuthStore();
+  const { isAuthenticated } = useAuthStore();
+
   const router = useRouter();
 
   // Guard Clause for Admin Access

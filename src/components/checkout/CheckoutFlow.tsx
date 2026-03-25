@@ -90,7 +90,8 @@ export default function CheckoutFlow() {
            </div>
            <div className="space-y-4">
               <h2 className="text-h2 text-navy">Your cart is <span className="text-primary italic">Empty</span></h2>
-              <p className="text-slate font-body text-lg opacity-60">You haven't added any premium perishables to your selection yet.</p>
+              <p className="text-slate font-body text-lg opacity-60">You haven&apos;t added any premium perishables to your selection yet.</p>
+
            </div>
            <Link href="/products" className="inline-flex items-center gap-4 h-16 px-10 bg-navy text-white font-display font-bold uppercase tracking-widest rounded-2xl hover:bg-black transition-all">
               Browse Catalog <ArrowRight size={20} />

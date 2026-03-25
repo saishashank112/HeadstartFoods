@@ -37,7 +37,7 @@ export default function HeroBanner() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="font-display text-white mb-6 leading-[1.1]">
-              <span className="text-display block">Canada's Freshest</span>
+              <span className="text-display block">Canada&apos;s Freshest</span>
               <span className="text-display text-accent-gold block italic font-extrabold">Premium Mangoes</span>
             </h1>
           </motion.div>
@@ -48,7 +48,7 @@ export default function HeroBanner() {
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             className="font-body text-white/90 text-body-lg mb-10 max-w-lg leading-relaxed"
           >
-            Weekly air-imported from India's finest orchards. CFIA certified, fully traceable, and delivered fresh to your doorstep.
+            Weekly air-imported from India&apos;s finest orchards. CFIA certified, fully traceable, and delivered fresh to your doorstep.
           </motion.p>
 
           <motion.div

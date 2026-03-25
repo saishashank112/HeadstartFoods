@@ -15,26 +15,7 @@ const SORT_OPTIONS = [
   { id: "popularity", label: "Popularity" }
 ];
 
-function CategoryDivider({ category, count }: { category: any; count: number }) {
-  if (category.id === "all" || category.id === "mangoes") return null;
 
-  return (
-    <div className="w-full h-12 flex items-center justify-between border-b border-gray-soft mt-10 mb-6 group">
-      <div className="flex items-center gap-3">
-        <div className="w-2 h-2 rounded-full" style={{ backgroundColor: category.accent || '#F59E0B' }} />
-        <h3 className="font-display font-black text-lg md:text-xl text-navy uppercase tracking-tighter leading-none">
-          {category.name}
-        </h3>
-        <span className="text-slate/40 font-body text-[10px] md:text-xs font-medium tracking-wide">
-          ({count})
-        </span>
-      </div>
-      <button className="text-primary font-display font-black text-[10px] uppercase tracking-widest hover:underline transition-all">
-        View All →
-      </button>
-    </div>
-  );
-}
 
 export default function ProductCatalog() {
   const { products } = useProductStore();
@@ -54,15 +35,7 @@ export default function ProductCatalog() {
     });
   }, [activeCategory, currentSort, products]);
 
-  const groupedProducts = useMemo(() => {
-    if (activeCategory !== "all") return [];
-    return CATEGORIES
-      .filter(cat => cat.id !== "all")
-      .map(cat => ({
-        category: cat,
-        items: sortedProducts.filter(p => p.category.toLowerCase().includes(cat.id.toLowerCase().replace(/-/g, ' ')))
-      }));
-  }, [activeCategory, sortedProducts]);
+
 
   return (
     <div className="container mx-auto px-4 md:px-8 pt-12 md:pt-20 pb-24 md:pb-12">

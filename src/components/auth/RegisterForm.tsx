@@ -50,9 +50,11 @@ export default function RegisterForm() {
       } else {
         router.push("/dashboard");
       }
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || "Registration failed.");
+    } catch (error: unknown) {
+      const errorMessage = (error as { response?: { data?: { error?: string } } })?.response?.data?.error || "Registration failed.";
+      toast.error(errorMessage);
     } finally {
+
       setLoading(false);
     }
   };

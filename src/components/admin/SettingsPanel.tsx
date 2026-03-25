@@ -7,11 +7,10 @@ import {
   CreditCard, 
   Bell, 
   Mail, 
-  Globe,
   Save,
-  Info,
   Phone
 } from "lucide-react";
+
 
 export default function SettingsPanel() {
   const [activeTab, setActiveTab] = useState("General Info");

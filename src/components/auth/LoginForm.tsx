@@ -31,9 +31,12 @@ export default function LoginForm() {
       } else {
         router.push("/dashboard");
       }
-    } catch (error: any) {
-      toast.error(error.response?.data?.error || "Invalid credentials.");
+    } catch (error: unknown) {
+      const errorMessage = (error as { response?: { data?: { error?: string } } })?.response?.data?.error || "Invalid credentials.";
+      toast.error(errorMessage);
     } finally {
+
+
       setLoading(false);
     }
   };

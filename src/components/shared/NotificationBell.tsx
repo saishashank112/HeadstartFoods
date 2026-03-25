@@ -1,7 +1,8 @@
 "use client";
 
 import { useNotificationStore, Notification } from "@/store/useNotificationStore";
-import { Bell, X, Check, AlertCircle, Info, CheckCircle2 } from "lucide-react";
+import { Bell, X, AlertCircle, Info, CheckCircle2 } from "lucide-react";
+
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { formatDistanceToNow } from "date-fns";

@@ -1,6 +1,7 @@
 import VideoHero from "@/components/home/VideoHero";
 import TrustBar from "@/components/home/TrustBar";
-import FeaturedProductsCarousel from "@/components/home/FeaturedProductsCarousel";
+
+
 import WhyChooseSection from "@/components/home/WhyChooseSection";
 import ShopByCategory from "@/components/home/ShopByCategory";
 import SupplyChainTimeline from "@/components/home/SupplyChainTimeline";

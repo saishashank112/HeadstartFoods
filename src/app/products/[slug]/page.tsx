@@ -6,7 +6,8 @@ export const metadata: Metadata = {
   description: "Experience the King of Mangoes! Hand-picked in Ratnagiri, air-shipped to Canada, and CFIA cleared. Order your box today for peak-season freshness.",
 };
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
+export default function ProductPage({ params: _params }: { params: { slug: string } }) {
+
   // In a real app, fetch product by slug here
   return (
     <div className="pt-16 pb-24 min-h-screen bg-white">
