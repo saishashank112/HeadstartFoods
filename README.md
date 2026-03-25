@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🥭 Headstart Foods — Premium Perishables Importer
 
-## Getting Started
+A complete, production-grade, full-stack eCommerce platform for **Headstart Foods Inc.**, a Surrey, BC-based importer specializing in premium Indian mangoes and South Asian groceries.
 
-First, run the development server:
+---
 
+## 🚀 Technology Stack
+
+### Frontend (Next.js 14)
+- **Framework**: Next.js 14 (App Router)
+- **Styling**: Tailwind CSS (Custom HSL Token System)
+- **Animations**: Framer Motion (Entrance & Layout Transitions)
+- **Icons**: Lucide React
+- **State**: Zustand (Cart & Auth Persist)
+- **Forms**: React Hook Form + Zod
+- **Carousel**: Embla Carousel
+
+### Backend (Node.js/Express)
+- **Runtime**: Node.js v18+
+- **Database**: MySQL (hosted via Prisma ORM)
+- **Security**: JWT Authentication, Bcrypt Hashing, Helmet, Rate Limiter
+- **Middleware**: Morgan Logging, Compression, CORS
+- **Payments**: Stripe Payment Intents & Webhooks, PayPal Order Capture
+- **Utilities**: BigInt JSON Serialization, Singleton Prisma Client
+
+---
+
+## 🏗️ Core Architecture & Features
+
+### 1. High-Performance B2C Shopping
+- **Dynamic Catalogue**: Filter by origin, category, and price range.
+- **King of Mangoes Experience**: Detailed product pages with variant pricing and seasonal availability badges.
+- **Persistent Cart**: Unified guest and user session management.
+- **Checkout Wizard**: Secure 3-step shipping and payment flow (Stripe/PayPal).
+
+### 2. Institutional B2B Portal
+- **Wholesale Intake**: High-conversion lead capture for Canadian retailers.
+- **Tiered Pricing**: Automatic volume-based discount mapping.
+- **Resource Center**: Access to FSSAI/CFIA compliance documentation and logistics guides.
+
+### 3. Supply Chain Transparency
+- **Batch Traceability**: Consumer-facing portal to lookup orchard harvest dates and flight cold-chain logs.
+- **Compliance Shield**: Real-time verification of health certificates and inspection stamps.
+
+### 4. Admin Command Center
+- **Executive Dashboard**: KPIs for gross revenue, active order velocity, and partner inquiries.
+- **Inventory Control**: Live SKU editing, stock monitoring, and perishability alerts.
+- **Order Queue**: Direct management of fulfillment statuses (Pending -> In Transit -> Delivered).
+
+---
+
+## 🛠️ Installation & Setup
+
+### 1. Prerequisites
+- Node.js 18+
+- MySQL Instance
+- Stripe/PayPal API Keys
+
+### 2. Backend Setup
 ```bash
+cd backend
+npm install
+npx prisma generate
+npx prisma migrate dev
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Frontend Setup
+```bash
+npm install
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Environment Variables (.env)
+Create a `.env` in the `backend/` directory:
+```env
+DATABASE_URL="mysql://USER:PASS@HOST:3306/headstarts"
+JWT_SECRET="your_secret"
+STRIPE_SECRET_KEY="sk_test_..."
+STRIPE_WEBHOOK_SECRET="whsec_..."
+PORT=5000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🥭 Design Language
 
-To learn more about Next.js, take a look at the following resources:
+- **Primary**: `#F97316` (Deep Mango Orange)
+- **Navy**: `#0F172A` (Safety & Institutional Trust)
+- **Gold**: `#EAB308` (Premium Grade Indicator)
+- **Radius**: `1.5rem` (Modern, softened professional feel)
+- **Typography**: `DM Sans` (Headlines) & `Inter` (UI/Body)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+© 2026 Headstart Foods Inc. All Rights Reserved. Engineered by **Antigravity**.

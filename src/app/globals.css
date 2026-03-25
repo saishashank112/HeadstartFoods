@@ -3,25 +3,116 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Color Tokens - Premium Mango Branding */
+  --color-primary: #FF8C00;
+  --color-accent-gold: #FFB300;
+  --color-mango-warm: #FFA000;
+  --color-navy: #1A1A2E;
+  --color-slate: #2D3748;
+  --color-off-white: #F7F7F2;
+  --color-white: #FFFFFF;
+  --color-success: #059669;
+  --color-error: #DC2626;
+  --color-gray-soft: #F3F4F6;
+
+  /* Typography System - Fluid Scaling with clamp() */
+  --text-display: clamp(24px, 8vw, 56px);
+  --text-h1: clamp(20px, 6vw, 40px);
+  --text-h2: clamp(18px, 5vw, 32px);
+  --text-h3: clamp(16px, 4vw, 24px);
+  --text-body-lg: clamp(14px, 2.5vw, 18px);
+  --text-body: 16px; /* Strict 16px minimum for accessibility and auto-zoom prevention */
+  --text-caption: clamp(12px, 2vw, 14px);
+  --text-button: 16px; 
+  --text-badge: 11px;
+
+  /* Spacing System - Strict 4px Grid */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px; /* Standard Touch Target Zone */
+  --space-16: 64px;
+
+  /* Safe Area Tokens */
+  --safe-area-top: env(safe-area-inset-top, 0px);
+  --safe-area-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-left: env(safe-area-inset-left, 0px);
+  --safe-area-right: env(safe-area-inset-right, 0px);
+
+  /* Component Tokens */
+  --border-radius-sm: 8px;
+  --border-radius-md: 12px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 32px; /* Ultra-rounded premium corners */
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
+  --shadow-lg: 0 12px 32px rgba(26,26,46,0.15);
+
+  --transition-fast: 150ms cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-base: 300ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  -webkit-tap-highlight-color: transparent; /* Remove mobile tap highlight */
+}
+
+html {
+  scroll-behavior: smooth;
+  height: -webkit-fill-available; /* Fix for mobile viewport height */
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-off-white);
+  color: var(--color-navy);
+  font-family: "Times New Roman", Times, serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Strict no horizontal scroll */
+  width: 100%;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  padding-bottom: var(--safe-area-bottom);
+}
+
+/* World-Class Typography Hierarchy */
+h1, h2, h3, h4, .font-display {
+  font-family: "Times New Roman", Times, serif !important;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+p, .font-body {
+  line-height: 1.6; /* Improved readability for body text */
+}
+
+/* Global Mobile Optimizations */
+@layer base {
+  input, textarea, select {
+    font-size: 16px !important; /* Prevent iOS Auto-Zoom */
+    @apply appearance-none outline-none;
+  }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-display { font-size: var(--text-display); }
+  .text-h1 { font-size: var(--text-h1); }
+  .text-h2 { font-size: var(--text-h2); }
+  .text-h3 { font-size: var(--text-h3); }
+  .text-body-lg { font-size: var(--text-body-lg); }
+  .text-body { font-size: var(--text-body); }
+  .text-caption { font-size: var(--text-caption); }
+  .text-button { font-size: var(--text-button); }
+  .text-badge { font-size: var(--text-badge); }
+  
+  .safe-pt { padding-top: var(--safe-area-top); }
+  .safe-pb { padding-bottom: var(--safe-area-bottom); }
 }

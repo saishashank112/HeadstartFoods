@@ -1,0 +1,495 @@
+export interface Product {
+  id: string;
+  name: string;
+  slug: string;
+  price: number;
+  unit: string;
+  category: string;
+  origin: string;
+  image: string;
+  inStock: boolean;
+  rating: number;
+  channels: ("B2B" | "B2C")[];
+  badge?: string;
+  specialBadge?: { text: string; bg: string; color: string };
+  flavourProfile?: string;
+  season?: string;
+  description: string;
+  isHero?: boolean;
+  certifications?: string[];
+  moq?: string;
+}
+
+export const CATEGORIES = [
+  { id: "all", name: "All Products" },
+  { id: "mangoes", name: "🥭 Mangoes", accent: "#FF8C00", channel: "Both" },
+  { id: "spices", name: "Spices", accent: "#E53E3E", channel: "Both" },
+  { id: "dals", name: "Lentils & Dals", accent: "#D97706", channel: "Both" },
+  { id: "ready-to-eat", name: "Ready-to-Eat", accent: "#059669", channel: "B2C" },
+  { id: "snacks", name: "Snacks & Sweets", accent: "#7C3AED", channel: "Both" },
+  { id: "flours", name: "Specialty Flours", accent: "#92400E", channel: "B2B" },
+  { id: "pickles", name: "Pickles", accent: "#16A34A", channel: "Both" },
+];
+
+export const PRODUCTS: Product[] = [
+  // CATEGORY 1: PREMIUM MANGOES
+  {
+    id: "m1",
+    name: "Alphonso Mango (Hapus)",
+    slug: "alphonso-hapus",
+    price: 24.99,
+    unit: "3kg Box",
+    category: "mangoes",
+    origin: "Ratnagiri & Devgad, Maharashtra",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "BESTSELLER",
+    specialBadge: { text: "KING OF MANGOES 👑", bg: "#FF8C00", color: "#FFFFFF" },
+    flavourProfile: "Rich, creamy, saffron-sweet with zero fibre",
+    season: "April – June",
+    description: "The world's most celebrated mango. Sourced exclusively from GI-tagged orchards in Ratnagiri and Devgad. Air-imported within 48 hours of harvest.",
+    isHero: true,
+    certifications: ["CFIA", "FSSAI", "Air Imported", "GI Tagged"],
+    moq: "5 boxes"
+  },
+  {
+    id: "m2",
+    name: "Kesar Mango",
+    slug: "kesar-mango",
+    price: 21.99,
+    unit: "3kg Box",
+    category: "mangoes",
+    origin: "Junagadh & Gir, Gujarat",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "PREMIUM",
+    specialBadge: { text: "QUEEN OF MANGOES 👸", bg: "#FFB300", color: "#1A1A2E" },
+    flavourProfile: "Deep orange flesh, honey-sweet, intensely aromatic",
+    season: "May – July",
+    description: "Named after saffron for its spectacular orange hue. Grown in the mineral-rich soils near Gir forest, Gujarat. GI-tagged and air-imported.",
+    isHero: true,
+    certifications: ["CFIA", "FSSAI", "Air Imported", "GI Tagged"],
+    moq: "5 boxes"
+  },
+  {
+    id: "m3",
+    name: "Banganapalli Mango",
+    slug: "banganapalli-mango",
+    price: 18.99,
+    unit: "3kg Box",
+    category: "mangoes",
+    origin: "Andhra Pradesh & Telangana",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "POPULAR",
+    specialBadge: { text: "GI TAGGED", bg: "#7C3AED", color: "#FFFFFF" },
+    flavourProfile: "Large golden fruit, mild-sweet, smooth fibre-free flesh",
+    season: "April – June",
+    description: "One of India's most popular commercial varieties. Known for its large size and bright golden skin. A favourite for fresh eating.",
+    isHero: true,
+    certifications: ["CFIA", "FSSAI", "Air Imported", "GI Tagged"],
+    moq: "5 boxes"
+  },
+  {
+    id: "m4",
+    name: "Mallika Mango",
+    slug: "mallika-mango",
+    price: 19.99,
+    unit: "3kg Box",
+    category: "mangoes",
+    origin: "Uttar Pradesh & Karnataka",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "LIMITED SEASON",
+    specialBadge: { text: "LATE SEASON", bg: "#059669", color: "#FFFFFF" },
+    flavourProfile: "Exceptionally sweet, rich honey notes, minimal fibre",
+    season: "June – August",
+    description: "A hybrid of Neelum and Dasheri. Exceptionally sweet with rich honey notes. Available in limited quantities.",
+    isHero: true,
+    certifications: ["CFIA", "FSSAI", "Air Imported"],
+    moq: "5 boxes"
+  },
+
+  // CATEGORY 2: SPICES
+  {
+    id: "s1",
+    name: "Premium Turmeric Powder",
+    slug: "turmeric-powder",
+    price: 4.99,
+    unit: "200g",
+    category: "spices",
+    origin: "Erode, Tamil Nadu",
+    image: "/spices_category.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "HIGH CURCUMIN",
+    description: "Single-origin spices sourced directly from Indian farms. Curcumin content: 3.5%+ certified."
+  },
+  {
+    id: "s2",
+    name: "Cumin Seeds (Jeera)",
+    slug: "cumin-seeds",
+    price: 3.99,
+    unit: "200g",
+    category: "spices",
+    origin: "Unjha, Gujarat",
+    image: "/spices_category.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    description: "Bold aroma, hand-cleaned stone-ground dried spices."
+  },
+  {
+    id: "s3",
+    name: "Coriander Powder (Dhania)",
+    slug: "coriander-powder",
+    price: 3.49,
+    unit: "200g",
+    category: "spices",
+    origin: "Rajasthan",
+    image: "/spices_category.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    description: "Naturally dried and packed for maximum potency."
+  },
+  {
+    id: "s4",
+    name: "Garam Masala Blend",
+    slug: "garam-masala",
+    price: 5.99,
+    unit: "100g",
+    category: "spices",
+    origin: "Blended in India",
+    image: "/spices_category.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "HOUSE BLEND",
+    description: "12-spice authentic blend for restaurant quality results."
+  },
+  {
+    id: "s5",
+    name: "Kashmiri Red Chili Powder",
+    slug: "kashmiri-chili",
+    price: 5.49,
+    unit: "200g",
+    category: "spices",
+    origin: "Kashmir Valley",
+    image: "/spices_category.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "GI TAGGED",
+    description: "Bright red colour, mild heat. Stone-ground naturally dried."
+  },
+  {
+    id: "s6",
+    name: "Deggi Mirch (Mixed Chili)",
+    slug: "deggi-mirch",
+    price: 4.49,
+    unit: "200g",
+    category: "spices",
+    origin: "Rajasthan",
+    image: "/spices_category.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    description: "Maximum potency and long shelf life."
+  },
+
+  // CATEGORY 3: LENTILS & DALS
+  {
+    id: "d1",
+    name: "Toor Dal (Split Pigeon Peas)",
+    slug: "toor-dal",
+    price: 5.99,
+    unit: "1kg",
+    category: "dals",
+    origin: "Maharashtra & Gujarat",
+    image: "/dals_category.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "BESTSELLER",
+    description: "Oil-coated for freshness. Machine-cleaned and sortex-processed."
+  },
+  {
+    id: "d2",
+    name: "Moong Dal (Split Green Gram)",
+    slug: "moong-dal",
+    price: 4.99,
+    unit: "1kg",
+    category: "dals",
+    origin: "Rajasthan",
+    image: "/dals_category.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    description: "Washed and split, quick-cook premium pulses."
+  },
+  {
+    id: "d3",
+    name: "Chana Dal (Split Bengal Gram)",
+    slug: "chana-dal",
+    price: 4.49,
+    unit: "1kg",
+    category: "dals",
+    origin: "Madhya Pradesh",
+    image: "/dals_category.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    description: "Premium quality lentils sortex-processed."
+  },
+  {
+    id: "d4",
+    name: "Masoor Dal (Red Lentils)",
+    slug: "masoor-dal",
+    price: 4.49,
+    unit: "1kg",
+    category: "dals",
+    origin: "Madhya Pradesh & UP",
+    image: "/dals_category.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    description: "Fast-cooking, no soaking needed. Machine-cleaned."
+  },
+
+  // CATEGORY 4: READY-TO-EAT
+  {
+    id: "rte1",
+    name: "Butter Chicken Curry",
+    slug: "butter-chicken",
+    price: 6.99,
+    unit: "280g",
+    category: "ready-to-eat",
+    origin: "Made in India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2C"],
+    badge: "READY IN 3 MIN",
+    description: "Restaurant quality ready-to-eat meal. No artificial preservatives."
+  },
+  {
+    id: "rte2",
+    name: "Jeera Rice Meal Kit",
+    slug: "jeera-rice",
+    price: 4.99,
+    unit: "250g",
+    category: "ready-to-eat",
+    origin: "Made in India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2C"],
+    description: "Authentic Indian snack and meal mixes ready in minutes."
+  },
+  {
+    id: "rte3",
+    name: "Mango Pickle + Rice Combo",
+    slug: "mango-combo",
+    price: 9.99,
+    unit: "Combo Pack",
+    category: "ready-to-eat",
+    origin: "Made in India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2C"],
+    badge: "COMBO DEAL",
+    description: "300g + 200g combo pack. Made from authentic recipes."
+  },
+
+  // CATEGORY 5: SNACKS & SWEETS
+  {
+    id: "sw1",
+    name: "Assorted Namkeen Mix",
+    slug: "namkeen-mix",
+    price: 3.99,
+    unit: "200g",
+    category: "snacks",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "CROWD FAVOURITE",
+    description: "Savory mixes from India's most celebrated snack makers."
+  },
+  {
+    id: "sw2",
+    name: "Motichoor Ladoo (Mithai)",
+    slug: "ladoo",
+    price: 12.99,
+    unit: "500g Box",
+    category: "snacks",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    description: "Fresh batch — 2-week shelf life. Traditional Indian sweets."
+  },
+  {
+    id: "sw3",
+    name: "Soan Papdi (Gift Box)",
+    slug: "soan-papdi",
+    price: 7.99,
+    unit: "250g Box",
+    category: "snacks",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    badge: "GIFT READY",
+    description: "Gift-ready traditional Indian snacks and sweets."
+  },
+  {
+    id: "sw4",
+    name: "Murukku Savory Mix",
+    slug: "murukku",
+    price: 4.49,
+    unit: "200g",
+    category: "snacks",
+    origin: "South India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    description: "Traditional crunchy savory mix."
+  },
+
+  // CATEGORY 6: SPECIALTY FLOURS
+  {
+    id: "f1",
+    name: "Besan (Chickpea Flour)",
+    slug: "besan",
+    price: 3.99,
+    unit: "1kg",
+    category: "flours",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B"],
+    description: "Fine ground, sifted, premium grade for restaurants and bakeries.",
+    moq: "5kg Retail / 25kg B2B"
+  },
+  {
+    id: "f2",
+    name: "Chakki Atta (Whole Wheat)",
+    slug: "chakki-atta",
+    price: 12.99,
+    unit: "5kg",
+    category: "flours",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B"],
+    badge: "STONE GROUND",
+    description: "Stone-ground chakki process specialty flour."
+  },
+  {
+    id: "f3",
+    name: "Rice Flour (Fine)",
+    slug: "rice-flour",
+    price: 3.49,
+    unit: "1kg",
+    category: "flours",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B"],
+    description: "Stone-ground for commercial use."
+  },
+  {
+    id: "f4",
+    name: "Ragi Flour (Finger Millet)",
+    slug: "ragi-flour",
+    price: 4.99,
+    unit: "500g",
+    category: "flours",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B"],
+    badge: "GLUTEN FREE",
+    description: "High calcium, gluten-free specialty flour."
+  },
+
+  // CATEGORY 7: PICKLES & CONDIMENTS
+  {
+    id: "p1",
+    name: "Mango Pickle (Aam Ka Achar)",
+    slug: "mango-pickle",
+    price: 5.99,
+    unit: "300g Jar",
+    category: "pickles",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "BESTSELLER",
+    description: "Raw mango + mustard oil recipe. Goes great with Alphonso mangoes!"
+  },
+  {
+    id: "p2",
+    name: "Lime Pickle (Nimbu Achar)",
+    slug: "lime-pickle",
+    price: 4.99,
+    unit: "300g Jar",
+    category: "pickles",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    description: "Traditional Indian pickle with no artificial colours."
+  },
+  {
+    id: "p3",
+    name: "Mint Chutney (Ready-to-Use)",
+    slug: "mint-chutney",
+    price: 3.99,
+    unit: "200g",
+    category: "pickles",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 5,
+    channels: ["B2B", "B2C"],
+    badge: "FRESH MADE",
+    description: "Traditional chutneys made from authentic recipes."
+  },
+  {
+    id: "p4",
+    name: "Tamarind Chutney",
+    slug: "tamarind-chutney",
+    price: 3.49,
+    unit: "200g",
+    category: "pickles",
+    origin: "India",
+    image: "/mango-alphonso.png",
+    inStock: true,
+    rating: 4,
+    channels: ["B2B", "B2C"],
+    description: "No artificial colours or preservatives."
+  },
+];
