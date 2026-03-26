@@ -64,6 +64,66 @@ export const login = async (req: Request, res: Response) => {
   }
 };
 
+export const adminRegister = async (req: Request, res: Response) => {
+  try {
+    const { email, password, first_name, last_name, secret_key } = req.body;
+
+    // Optional: Protect admin registration with a secret key
+    // if (secret_key !== process.env.ADMIN_SECRET_KEY) return res.status(403).json({ error: "Forbidden" });
+
+    const existingUser = await prisma.user.findUnique({ where: { email } });
+    if (existingUser) return res.status(400).json({ error: "Email already in use" });
+
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    const user = await prisma.user.create({
+      data: {
+        email,
+        password_hash: hashedPassword,
+        first_name,
+        last_name,
+        role: "admin",
+        status: "active",
+      },
+    });
+
+    const token = jwt.sign({ id: user.id.toString(), role: user.role }, JWT_SECRET, {
+      expiresIn: JWT_EXPIRES_IN,
+    });
+
+    res.status(201).json(serialize({ 
+      message: "Admin created successfully", 
+      user,
+      token
+    }));
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+export const adminLogin = async (req: Request, res: Response) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await prisma.user.findUnique({ where: { email } });
+    if (!user || !user.password_hash || user.role !== "admin") {
+      return res.status(401).json({ error: "Invalid admin credentials" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password_hash);
+    if (!isMatch) return res.status(401).json({ error: "Invalid admin credentials" });
+
+    const token = jwt.sign({ id: user.id.toString(), role: user.role }, JWT_SECRET, {
+      expiresIn: JWT_EXPIRES_IN,
+    });
+
+    res.status(200).json(serialize({ token, user }));
+  } catch (error: any) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+
 export const getMe = async (req: any, res: Response) => {
   try {
     if (!req.user) return res.status(401).json({ error: "Unauthorized" });

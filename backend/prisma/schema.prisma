@@ -1,12 +1,10 @@
 generator client {
-  provider      = "prisma-client-js"
-  binaryTargets = ["native", "windows"]
-  engineType    = "binary"
+  provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "mysql"
-  url      = "mysql://root:root@localhost:3306/headstart_foods"
+  url      = env("DATABASE_URL")
 }
 
 model User {

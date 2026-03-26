@@ -31,10 +31,34 @@ const NAV_ITEMS = [
   ]}
 ];
 
+import { useEffect, useState } from "react";
+
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const logout = useAuthStore((state) => state.logout);
+  const { logout, checkAuth, isAuthenticated, user } = useAuthStore();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    checkAuth();
+  }, [checkAuth]);
+
+  useEffect(() => {
+    if (isClient && !isAuthenticated && pathname !== '/admin/login' && pathname !== '/admin/register') {
+      router.push('/admin/login');
+    }
+  }, [isClient, isAuthenticated, pathname, router]);
+
+  if (!isClient) return null;
+
+  if (pathname === '/admin/login' || pathname === '/admin/register') {
+    return <main className="min-h-screen bg-[#F8F9FA]">{children}</main>;
+  }
+
+  if (!isAuthenticated || user?.role !== 'admin') {
+    return null;
+  }
 
   return (
     <div className="flex min-h-screen bg-[#F8F9FA]">

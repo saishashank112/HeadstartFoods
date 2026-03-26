@@ -16,6 +16,8 @@ interface AuthState {
   isAuthenticated: boolean;
   login: (email: string, pass: string) => Promise<void>;
   register: (data: Record<string, string>) => Promise<void>;
+  adminLogin: (email: string, pass: string) => Promise<void>;
+  adminRegister: (data: Record<string, string>) => Promise<void>;
   logout: () => void;
   checkAuth: () => Promise<void>;
 }
@@ -51,6 +53,22 @@ export const useAuthStore = create<AuthState>()(
           token,
           isAuthenticated: true,
         });
+      },
+
+      adminLogin: async (email, password) => {
+        const res = await axios.post(`${API_URL}/auth/admin/login`, { email, password });
+        const { token, user } = res.data;
+        document.cookie = `headstart-token=${token}; path=/; max-age=86400; SameSite=Lax`;
+        set({ user, token, isAuthenticated: true });
+      },
+
+      adminRegister: async (data) => {
+        const res = await axios.post(`${API_URL}/auth/admin/register`, data);
+        const { token, user } = res.data;
+        if (token) {
+          document.cookie = `headstart-token=${token}; path=/; max-age=86400; SameSite=Lax`;
+        }
+        set({ user, token, isAuthenticated: true });
       },
 
       logout: () => {

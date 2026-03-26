@@ -80,18 +80,14 @@ export default function OverviewPanel() {
             <table className="w-full text-left">
                <tbody className="divide-y divide-gray-50">
                   {[
-                    "Premium Banarasi Silk Saree in red - Edition 1",
-                    "Premium Kanjivaram Silk Saree in red - Edition 2",
-                    "Premium Tissue Silk Saree in green - Edition 3",
-                    "Premium Banarasi Silk Saree in pink - Edition 4",
-                    "Premium Soft Silk Silk Saree in green - Edition 5"
+                    "Alphonso Mango Box - Premium Grade",
                   ].map((item, i) => (
                      <tr key={i} className="hover:bg-gray-50/50 transition-colors group">
                         <td className="p-6 flex items-center gap-4">
                            <div className="w-2 h-2 rounded-full bg-error" />
                            <div>
                               <div className="font-display font-bold text-sm text-navy">{item}</div>
-                              <div className="text-[10px] font-body text-slate/40 uppercase tracking-widest">Sarees</div>
+                              <div className="text-[10px] font-body text-slate/40 uppercase tracking-widest">Mangoes</div>
                            </div>
                         </td>
                         <td className="p-6 text-right">
